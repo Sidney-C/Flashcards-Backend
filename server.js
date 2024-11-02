@@ -16,6 +16,7 @@ app.get("/allcards", async (req, res) => {
         const allCards = await pool.query("SELECT * FROM cards");
         res.json(allCards.rows);
     } catch (error) {
+        console.log("Failed to connect...");
         console.error(error.message);
     }
 });
